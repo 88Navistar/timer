@@ -1,13 +1,14 @@
-const nums = [1000, 300, 500, 1500, 900];
+let args = process.argv.slice(2)
+
 const myFn = (delays) => {
-  if (nums <= 0 || nums === '' || nums === []) {
+
+  if (args <= 0 || args === '' || args === []) {
     return;
   }
-  for (const delay of delays) {
+  for (let delay of delays) {
     setTimeout(() => {
-      //console.log(delay);
-      process.stdout.write('\x07')
-    }, delay);
+       process.stdout.write('\x07')
+    }, 1000 * delay);
   }
 };
-myFn(nums); //delays
+myFn(args); //delays
